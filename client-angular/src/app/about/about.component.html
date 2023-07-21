@@ -1,0 +1,25 @@
+<h1>{{ title }}</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>no</th>
+      <th>nama barang</th>
+      <th>stock barang</th>
+      <th>jumlah barang</th>
+      <th>aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of datas; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ data.name_product }}</td>
+      <td>{{ data.stock_product }}</td>
+      <td>{{ data.quantity_product }}</td>
+      <td style="display: flex; gap: 1rem">
+        <a routerLink="/product/{{ data.id }}">Edit</a>
+        <a (click)="deleteProduct(data.id)" style="cursor: pointer">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
